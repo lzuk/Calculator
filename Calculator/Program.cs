@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Calculator.RPN;
 
 namespace Calculator
 {
@@ -10,6 +7,14 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
+            string rpn = "12 2 3 4 * 10 5 / + * +";
+            Console.WriteLine(rpn);
+
+            IRpn service = new RpnService();
+
+            double result = service.CalculateRpn(rpn);
+            Console.WriteLine("Result: {0}", result);
+            Console.ReadKey();
         }
     }
 }

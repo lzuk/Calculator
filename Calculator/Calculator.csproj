@@ -42,12 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ParamsChecker.cs" />
+    <Compile Include="MathOperations\Operations\Division.cs" />
+    <Compile Include="MathOperations\IMathOperation.cs" />
+    <Compile Include="MathOperations\Operations\Minus.cs" />
+    <Compile Include="MathOperations\Operations\Multiply.cs" />
+    <Compile Include="MathOperations\OperationsMapper.cs" />
+    <Compile Include="MathOperations\Operations\Plus.cs" />
+    <Compile Include="MathOperations\Exceptions\OperationNotSupportedException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPN\RpnService.cs" />
+    <Compile Include="RPN\IRpn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
