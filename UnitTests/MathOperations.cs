@@ -76,10 +76,8 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ShouldReturnValidObjectsMultiply()
+        public void ShouldReturnValidObjectMultiply()
         {
-            //given
-            
             //when
             _operation = (IMathOperation) mapper["*"];
 
@@ -88,10 +86,8 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ShouldReturnValidObjectsDivision()
+        public void ShouldReturnValidObjectDivision()
         {
-            //given
-
             //when
             _operation = (IMathOperation)mapper["/"];
 
@@ -100,10 +96,8 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ShouldReturnValidObjectsPlus()
+        public void ShouldReturnValidObjectPlus()
         {
-            //given
-
             //when
             _operation = (IMathOperation)mapper["+"];
 
@@ -112,10 +106,8 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ShouldReturnValidObjectsMinus()
+        public void ShouldReturnValidObjectMinus()
         {
-            //given
-
             //when
             _operation = (IMathOperation)mapper["-"];
 
@@ -126,8 +118,6 @@ namespace UnitTests
         [TestMethod]
         public void ShouldReturnValidNullWhenThereIsNoSuchType()
         {
-            //given
-
             //when
             _operation = (IMathOperation)mapper["?"];
 
