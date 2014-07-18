@@ -6,5 +6,10 @@
         {
             return param1 * param2;
         }
+
+        public string Mark()
+        {
+            return "*";
+        }
     }
 }

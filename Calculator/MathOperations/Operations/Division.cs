@@ -13,5 +13,10 @@ namespace Calculator.MathOperations.Operations
 
             return param2 / param1;
         }
+
+        public string Mark()
+        {
+            return "/";
+        }
     }
 }

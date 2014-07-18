@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using Calculator.MathOperations;
 using Calculator.MathOperations.Exceptions;
 
@@ -8,7 +12,41 @@ namespace Calculator.RPN
     {
         public string CreateRpn(string expression)
         {
-            throw new System.NotImplementedException();
+            Regex splitCharactersRegex = new Regex(@"([\+\-\*\(\)\/])");
+            List<String> tokenList = splitCharactersRegex.Split(expression).Select(t => t.Trim()).Where(t => t != "").ToList();
+            var operatorsStack = new Stack<string>();
+            var output = new Queue<object>();
+
+            foreach (var token in tokenList)
+            {
+                double value;
+                if (double.TryParse(token, out value))
+                {
+                    output.Enqueue(value);
+                }
+                else
+                {
+                    if (operatorsStack.Count == 0)
+                    {
+                        operatorsStack.Push(token);
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+
+            StringBuilder builder = new StringBuilder();
+            while (output.Count != 1)
+            {
+                builder.Append(output.Dequeue());
+                builder.Append(" ");
+            }
+
+            builder.Append(output.Dequeue());
+
+            return builder.ToString();
         }
 
         public double CalculateRpn(string rpn)
@@ -38,6 +76,9 @@ namespace Calculator.RPN
             return stack.Pop();
         }
 
-
+        private string ValidateExpression(string expression)
+        {
+            return expression;
+        }
     }
 }
