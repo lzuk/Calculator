@@ -10,7 +10,6 @@ namespace UnitTests
     public class MathOperations
     {
         private IMathOperation _operation;
-        private readonly Hashtable mapper = OperationsMapper.Get();
 
         [TestMethod]
         public void ShouldReturnSum()
@@ -73,56 +72,6 @@ namespace UnitTests
 
             //when
             _operation.PerformOperation(0, 1);
-        }
-
-        [TestMethod]
-        public void ShouldReturnValidObjectMultiply()
-        {
-            //when
-            _operation = (IMathOperation) mapper["*"];
-
-            //then
-            Assert.AreEqual(typeof(Multiply), _operation.GetType());
-        }
-
-        [TestMethod]
-        public void ShouldReturnValidObjectDivision()
-        {
-            //when
-            _operation = (IMathOperation)mapper["/"];
-
-            //then
-            Assert.AreEqual(typeof(Division), _operation.GetType());
-        }
-
-        [TestMethod]
-        public void ShouldReturnValidObjectPlus()
-        {
-            //when
-            _operation = (IMathOperation)mapper["+"];
-
-            //then
-            Assert.AreEqual(typeof(Plus), _operation.GetType());
-        }
-
-        [TestMethod]
-        public void ShouldReturnValidObjectMinus()
-        {
-            //when
-            _operation = (IMathOperation)mapper["-"];
-
-            //then
-            Assert.AreEqual(typeof(Minus), _operation.GetType());
-        }
-
-        [TestMethod]
-        public void ShouldReturnValidNullWhenThereIsNoSuchType()
-        {
-            //when
-            _operation = (IMathOperation)mapper["?"];
-
-            //then
-            Assert.AreEqual(null, _operation);
         }
     }
 }
