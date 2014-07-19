@@ -1,6 +1,6 @@
 ﻿namespace Calculator.RPN
 {
-    public interface IRpn
+    public interface IRpnService
     {
         string CreateRpn(string expression);
         double CalculateRpn(string rpn);

@@ -9,7 +9,7 @@ using Calculator.MathOperations.Exceptions;
 
 namespace Calculator.RPN
 {
-    public class RpnService : IRpn
+    public class RpnService : IRpnService
     {
         public string CreateRpn(string expression)
         {

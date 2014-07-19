@@ -7,7 +7,7 @@ namespace UnitTests
     [TestClass]
     public class RpnServiceTests
     {
-        readonly IRpn _service = new RpnService();
+        readonly IRpnService _service = new RpnService();
 
         [TestMethod]
         public void ShouldReturnValue1()

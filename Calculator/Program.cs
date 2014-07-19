@@ -11,7 +11,7 @@ namespace Calculator
             Console.WriteLine("Write expression");
             Console.WriteLine("To quit type q");
 
-            IRpn service = new RpnService();
+            IRpnService service = new RpnService();
 
             while (true)
             {
