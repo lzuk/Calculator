@@ -16,7 +16,6 @@ namespace Calculator.RPN
             List<String> tokenList = splitCharactersRegex.Split(expression).Select(t => t.Trim()).Where(t => t != "").ToList();
             var operatorsStack = new Stack<IMathOperation>();
             var output = new Queue<object>();
-            object opsToken = "";
 
             foreach (var token in tokenList)
             {
@@ -27,21 +26,37 @@ namespace Calculator.RPN
                 }
                 else //operator
                 {
-                    while (operatorsStack.Count > 0)
+                    var mathOperation = (IMathOperation)OperationsMapper.Get()[token];
+                    if (mathOperation == null)
                     {
-                        
+                        throw new OperationNotSupportedException("Not supported operation");
                     }
+                    while (operatorsStack.Count > 0 && (int)OperationsPrioritier.Get()[operatorsStack.Peek().Mark()] >= (int)OperationsPrioritier.Get()[mathOperation.Mark()])
+                    {
+                        output.Enqueue(operatorsStack.Pop());
+                    }
+
+                    operatorsStack.Push(mathOperation);
                 }
             }
 
             StringBuilder builder = new StringBuilder();
-            while (output.Count > 1)
+            while (output.Count > 0)
             {
-                builder.Append(output.Dequeue());
+                object obj = output.Dequeue();
+                if (obj is IMathOperation)
+                {
+                    builder.Append((obj as IMathOperation).Mark());
+                }
+                else
+                {
+                    builder.Append(obj); 
+                }
+                
                 builder.Append(" ");
             }
 
-            builder.Append(output.Dequeue());
+            builder.Append(operatorsStack.Pop().Mark());
 
             return builder.ToString();
         }

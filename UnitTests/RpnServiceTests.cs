@@ -48,6 +48,19 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void ShouldReturnValue4()
+        {
+            //given
+            const string rpn = "3 4 + 2 +";
+
+            //when
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(9, result);
+        }
+
+        [TestMethod]
         public void ShouldReturnRNPExpression1()
         {
             //given
@@ -69,7 +82,7 @@ namespace UnitTests
             string result = service.CreateRpn(expression);
 
             //then
-            Assert.AreEqual("3 4", result);
+            Assert.AreEqual("3 4 +", result);
 
         }
 
@@ -83,7 +96,7 @@ namespace UnitTests
             string result = service.CreateRpn(expression);
 
             //then
-            Assert.AreEqual("3 4", result);
+            Assert.AreEqual("3 4 + 2 +", result);
 
         }
     }
