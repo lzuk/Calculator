@@ -14,23 +14,20 @@ namespace Calculator.RPN
         {
             Regex splitCharactersRegex = new Regex(@"([\+\-\*\(\)\/])");
             List<String> tokenList = splitCharactersRegex.Split(expression).Select(t => t.Trim()).Where(t => t != "").ToList();
-            var operatorsStack = new Stack<string>();
+            var operatorsStack = new Stack<IMathOperation>();
             var output = new Queue<object>();
+            object opsToken = "";
 
             foreach (var token in tokenList)
             {
                 double value;
-                if (double.TryParse(token, out value))
+                if (double.TryParse(token, out value)) //number
                 {
                     output.Enqueue(value);
                 }
-                else
+                else //operator
                 {
-                    if (operatorsStack.Count == 0)
-                    {
-                        operatorsStack.Push(token);
-                    }
-                    else
+                    while (operatorsStack.Count > 0)
                     {
                         
                     }
@@ -38,7 +35,7 @@ namespace Calculator.RPN
             }
 
             StringBuilder builder = new StringBuilder();
-            while (output.Count != 1)
+            while (output.Count > 1)
             {
                 builder.Append(output.Dequeue());
                 builder.Append(" ");
