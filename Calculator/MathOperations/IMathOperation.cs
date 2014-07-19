@@ -4,5 +4,6 @@
     {
        double PerformOperation(double param1, double param2);
        string Mark();
+       int Priority();
     }
 }

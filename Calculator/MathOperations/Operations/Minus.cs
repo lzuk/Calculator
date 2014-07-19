@@ -11,5 +11,10 @@
         {
             return "-";
         }
+
+        public int Priority()
+        {
+            return 1;
+        }
     }
 }

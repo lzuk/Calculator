@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +31,7 @@ namespace Calculator.RPN
                 {
                     var mathOperation = CheckIsMathOperation(OperationsMapper.Get(), token);
 
-                    while (operatorsStack.Count > 0 && (int)OperationsPrioritier.Get()[operatorsStack.Peek().Mark()] >= (int)OperationsPrioritier.Get()[mathOperation.Mark()])
+                    while (operatorsStack.Count > 0 && operatorsStack.Peek().Priority() >= mathOperation.Priority())
                     {
                         output.Enqueue(operatorsStack.Pop());
                     }
@@ -64,6 +63,11 @@ namespace Calculator.RPN
                 }
             }
             return stack.Pop();
+        }
+
+        public double CalucalteValue(string expression)
+        {
+            return CalculateRpn(CreateRpn(expression));
         }
 
         private static IMathOperation CheckIsMathOperation(Hashtable mappings, string token)

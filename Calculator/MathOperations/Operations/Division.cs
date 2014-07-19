@@ -18,5 +18,10 @@ namespace Calculator.MathOperations.Operations
         {
             return "/";
         }
+
+        public int Priority()
+        {
+            return 2;
+        }
     }
 }
