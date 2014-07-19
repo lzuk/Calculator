@@ -136,8 +136,7 @@ namespace UnitTests
             const string expression = "3+ 4*2 / 1";
 
             //when
-            string rpn = _service.CreateRpn(expression);
-            double result = _service.CalculateRpn(rpn);
+            double result = _service.CalucalteValue(expression);
 
             //then
             Assert.AreEqual(11, result);
@@ -151,8 +150,7 @@ namespace UnitTests
             const string expression = "3*5*10/15+3*2";
 
             //when
-            string rpn = _service.CreateRpn(expression);
-            double result = _service.CalculateRpn(rpn);
+            double result = _service.CalucalteValue(expression);
 
             //then
             Assert.AreEqual(16, result);
@@ -166,8 +164,7 @@ namespace UnitTests
             const string expression = "3*5*10/15+3*2+10*2/2+7*3+1+6+19+5/1+7*3+1";
 
             //when
-            string rpn = _service.CreateRpn(expression);
-            double result = _service.CalculateRpn(rpn);
+            double result = _service.CalucalteValue(expression);
 
             //then
             Assert.AreEqual(100, result);
@@ -181,8 +178,7 @@ namespace UnitTests
             const string expression = "3*5 *10 /15+3 *2+10 *2/2+7*3 +1+6+19+5/ 1+7*3+1";
 
             //when
-            string rpn = _service.CreateRpn(expression);
-            double result = _service.CalculateRpn(rpn);
+            double result = _service.CalucalteValue(expression);
 
             //then
             Assert.AreEqual(100, result);
