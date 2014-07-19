@@ -61,15 +61,42 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void ShouldReturnValue5()
+        {
+            //given
+            const string rpn = "3 4 2 * +";
+
+            //when
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(11, result);
+        }
+
+        [TestMethod]
+        public void ShouldReturnValue6()
+        {
+            //given
+            const string rpn = "3 4 2 * 1 / +";
+
+            //when
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(11, result);
+        }
+
+        [TestMethod]
         public void ShouldReturnRNPExpression1()
         {
             //given
-            const string expression = "3+4*2/(1-5)";
+            const string expression = "3+4*2/1";
 
             //when
             string result = service.CreateRpn(expression);
 
             //then
+            Assert.AreEqual("3 4 2 * 1 / +", result);
         }
 
         [TestMethod]
@@ -97,6 +124,52 @@ namespace UnitTests
 
             //then
             Assert.AreEqual("3 4 + 2 +", result);
+        }
+
+
+
+        [TestMethod]
+        public void ShouldReturnValueFromExpression1()
+        {
+            //given
+            const string expression = "3+ 4*2 / 1";
+
+            //when
+            string rpn = service.CreateRpn(expression);
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(11, result);
+
+        }
+
+        [TestMethod]
+        public void ShouldReturnValueFromExpression2()
+        {
+            //given
+            const string expression = "3*5*10/15+3*2";
+
+            //when
+            string rpn = service.CreateRpn(expression);
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(16, result);
+
+        }
+
+        [TestMethod]
+        public void ShouldReturnValueFromExpression3()
+        {
+            //given
+            const string expression = "3*5*10/15+3*2+10*2/2+7*3+1+6+19+5/1+7*3+1";
+
+            //when
+            string rpn = service.CreateRpn(expression);
+            double result = service.CalculateRpn(rpn);
+
+            //then
+            Assert.AreEqual(100, result);
 
         }
     }

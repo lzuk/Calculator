@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\ParamsChecker.cs" />
+    <Compile Include="Extensions\StringExtenstions.cs" />
+    <Compile Include="MathOperations\Exceptions\ExpressionNotParseableException.cs" />
     <Compile Include="MathOperations\OperationsPrioritier.cs" />
     <Compile Include="MathOperations\Operations\Division.cs" />
     <Compile Include="MathOperations\IMathOperation.cs" />
