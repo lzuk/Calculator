@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using Calculator.MathOperations;
 using Calculator.MathOperations.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
