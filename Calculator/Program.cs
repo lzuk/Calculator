@@ -26,13 +26,17 @@ namespace Calculator
                     double result = service.CalucalteValue(expression);
                     Console.WriteLine("Result: {0}", result);
                 }
-                catch (ExpressionNotParseableException ex)
+                catch (ExpressionNotParseableException)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine("Exception not parseable");
                 }
-                catch (OperationNotSupportedException ex)
+                catch (OperationNotSupportedException)
                 {
-                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine("Not supported operation");
+                }
+                catch (InvalidOperationException)
+                {
+                    Console.WriteLine("Invalid operation");
                 }
             }
         }
