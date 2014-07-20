@@ -5,8 +5,13 @@ using Calculator.MathOperations;
 
 namespace Calculator.Extensions
 {
-    static class StringExtenstions
+    public static class StringExtenstions
     {
+        /// <summary>
+        /// Extension method for checking if expression does not contain disallowed characters.
+        /// </summary>
+        /// <param name="expression">Expression to check.</param>
+        /// <returns>True if expression can be parseable.</returns>
         public static bool IsParseable(this string expression)
         {
             var numbers = new Regex("^[0-9]*$");

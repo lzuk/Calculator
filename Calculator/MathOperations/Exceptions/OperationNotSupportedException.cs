@@ -3,7 +3,7 @@
 namespace Calculator.MathOperations.Exceptions
 {
     /// <summary>
-    /// Throws when operation is not found
+    /// Should be throwed when operation is not found.
     /// </summary>
     public class OperationNotSupportedException : Exception
     {

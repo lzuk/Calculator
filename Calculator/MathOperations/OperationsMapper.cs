@@ -7,6 +7,10 @@ namespace Calculator.MathOperations
     public static class OperationsMapper
     {
         private static Hashtable _mapper;
+        /// <summary>
+        /// Finds all element with IMathOperation interface and build Hashtable with mark operation as a key and instance as value.
+        /// </summary>
+        /// <returns>Hashtable with operations mapper.</returns>
         public static Hashtable Get()
         {
             if (_mapper == null)

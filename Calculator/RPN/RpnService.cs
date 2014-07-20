@@ -9,11 +9,19 @@ using Calculator.MathOperations.Exceptions;
 
 namespace Calculator.RPN
 {
+    /// <summary>
+    /// RPN Math Service. Provide function implementations to handle RPN infix -> postfix tranformation and calculate value from RPN.
+    /// </summary>
     public class RpnService : IRpnService
     {
+        /// <summary>
+        /// Create RPN (Reverse Polish Notation) postfix expression from infix notation.
+        /// </summary>
+        /// <param name="expression">Expression with infix notation.</param>
+        /// <returns>Expression with postfix notation.</returns>
         public string CreateRpn(string expression)
         {
-            expression = ValidateExpression(expression);
+            expression = ValidateExpression(expression);   
 
             var tokenList = TokenList(expression);
 
@@ -43,6 +51,11 @@ namespace Calculator.RPN
             return CreateRpnFromOperatiopnStackAndOutput(output, operatorsStack);
         }
 
+        /// <summary>
+        /// Calculate value from RPN postfix expression.
+        /// </summary>
+        /// <param name="rpn">RPN postfix expression.</param>
+        /// <returns>Expected value.</returns>
         public double CalculateRpn(string rpn)
         {
             var rpnStrings = rpn.Split(' ');
@@ -65,6 +78,11 @@ namespace Calculator.RPN
             return stack.Pop();
         }
 
+        /// <summary>
+        /// Calculate value from infix notation expression.
+        /// </summary>
+        /// <param name="expression">Infix expression.</param>
+        /// <returns>Extected value</returns>
         public double CalucalteValue(string expression)
         {
             return CalculateRpn(CreateRpn(expression));

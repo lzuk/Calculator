@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MapperValidationsTests.cs" />
     <Compile Include="RpnServiceTests.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Calculator\Calculator.csproj">
