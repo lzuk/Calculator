@@ -33,7 +33,7 @@ namespace UnitTests
             double result = _operation.PerformOperation(2, 3);
 
             //then
-            Assert.AreEqual(-1, result);
+            Assert.AreEqual(1, result);
         }
 
         [TestMethod]

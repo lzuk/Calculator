@@ -45,7 +45,7 @@ namespace UnitTests
             double result = _service.CalculateRpn(rpn);
 
             //then
-            Assert.AreEqual(-20.5, result);
+            Assert.AreEqual(23.5, result);
         }
 
         [TestMethod]
@@ -127,8 +127,6 @@ namespace UnitTests
             Assert.AreEqual("3 4 + 2 +", result);
         }
 
-
-
         [TestMethod]
         public void ShouldReturnValueFromExpression1()
         {
@@ -140,7 +138,6 @@ namespace UnitTests
 
             //then
             Assert.AreEqual(11, result);
-
         }
 
         [TestMethod]
@@ -154,21 +151,19 @@ namespace UnitTests
 
             //then
             Assert.AreEqual(16, result);
-
         }
 
         [TestMethod]
         public void ShouldReturnValueFromExpression3()
         {
             //given
-            const string expression = "3*5*10/15+3*2+10*2/2+7*3+1+6+19+5/1+7*3+1";
+            const string expression = "35-10*2";
 
             //when
             double result = _service.CalucalteValue(expression);
 
             //then
-            Assert.AreEqual(100, result);
-
+            Assert.AreEqual(15, result);
         }
 
         [TestMethod]
@@ -182,7 +177,32 @@ namespace UnitTests
 
             //then
             Assert.AreEqual(100, result);
+        }
 
+        [TestMethod]
+        public void ShouldReturnValueFromExpression5()
+        {
+            //given
+            const string expression = "4+5/2-1";
+
+            //when
+            double result = _service.CalucalteValue(expression);
+
+            //then
+            Assert.AreEqual(5.5, result);
+        }
+
+        [TestMethod]
+        public void ShouldReturnValueFromExpression6()
+        {
+            //given
+            const string expression = "4+5/2-1*3/2-1-2/2";
+
+            //when
+            double result = _service.CalucalteValue(expression);
+
+            //then
+            Assert.AreEqual(3, result);
         }
 
         [TestMethod]
